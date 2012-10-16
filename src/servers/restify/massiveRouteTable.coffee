@@ -3,6 +3,7 @@ CMinion = require("../../minion")
 Minion = new CMinion()
 
 server = restify.createServer()
+server.use(restify.queryParser())
 port = process.env.PORT || 3000
 MAXROUTES = process.env.MAXROUTES || 100000
 
@@ -10,7 +11,7 @@ for i in [0..MAXROUTES]
   r = "/#{i}"
   server.get(r, (req, res) ->
     res.send("Hello World.")
-    Minion.logRequest()
+    Minion.logRequest(req.query)
   )
 
 Minion.started()

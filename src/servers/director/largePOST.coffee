@@ -21,7 +21,7 @@ server = http.createServer((req, res) ->
 router.post('/', () ->
   this.res.writeHead(200, {"Content-Type": "text/plain"})
   this.res.end(this.req.headers["content-length"])
-  Minion.logRequest()
+  Minion.logRequest(this.req, true)
 )
 
 Minion.started()

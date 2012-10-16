@@ -9,7 +9,7 @@ app.get("/", (req, res) ->
   fs.readFile(filepath, (err, data) ->
     throw err if err
     res.send(data.toString())
-    Minion.logRequest()
+    Minion.logRequest(req.query)
   )
 )
 

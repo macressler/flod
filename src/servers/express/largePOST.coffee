@@ -6,7 +6,7 @@ app = express()
 app.use(express.bodyParser())
 app.post("/", (req, res) ->
   res.send(req.headers["content-length"])
-  Minion.logRequest()
+  Minion.logRequest(req.query)
 )
 
 port = process.env.PORT || 3000

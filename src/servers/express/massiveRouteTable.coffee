@@ -10,7 +10,7 @@ for i in [0..MAXROUTES]
   r = "/#{i}"
   app.get(r, (req, res) -> 
     res.send("Hello World.")
-    Minion.logRequest()
+    Minion.logRequest(req.query)
   )
 
 

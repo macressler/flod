@@ -5,11 +5,13 @@ Minion = new CMinion()
 
 filepath = "/usr/share/dict/words"
 server = restify.createServer()
+server.use(restify.queryParser())
+
 server.get("/", (req, res) ->
   fs.readFile(filepath, (err, data) ->
     throw err if err
     res.send(data.toString())
-    Minion.logRequest()
+    Minion.logRequest(req.query)
   )
 )
 

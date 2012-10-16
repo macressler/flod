@@ -1,4 +1,5 @@
 os = require("os")
+qs = require("querystring")
 
 class Minion
   constructor: () ->
@@ -18,7 +19,9 @@ class Minion
   log: (action, data) ->
     process.send({action: action, data: data}) if process.send
   
-  logRequest: (query) ->
+  logRequest: (query, raw = false) ->
+    if raw
+      query = qs.parse(query.url.slice(2))
     @log("request", query.id)
   
   started: () ->

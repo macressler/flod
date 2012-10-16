@@ -4,9 +4,11 @@ Minion = new CMinion()
 
 server = restify.createServer()
 server.use(restify.bodyParser())
+server.use(restify.queryParser())
+
 server.post("/", (req, res) ->
   res.send(req.headers["content-length"])
-  Minion.logRequest()
+  Minion.logRequest(req.query)
 )
 
 port = process.env.PORT || 3000

@@ -5,7 +5,7 @@ Minion = new CMinion()
 app = express()
 app.get("/", (req, res) ->
   res.send("Hello World.")
-  Minion.logRequest()
+  Minion.logRequest(req.query)
 )
 
 port = process.env.PORT || 3000

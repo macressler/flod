@@ -10,7 +10,7 @@ download = () ->
     throw err if err
     self.res.writeHead(200, {'Content-Type': 'text/plain'})
     self.res.send(data.toString())
-    Minion.logRequest()
+    Minion.logRequest(this.req, true)
   )
 
 router = new director.http.Router({

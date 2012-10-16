@@ -6,7 +6,7 @@ Minion = new CMinion()
 helloWorld = () ->
   this.res.writeHead(200, {'Content-Type': 'text/plain'})
   this.res.end("Hello World.")
-  Minion.logRequest()
+  Minion.logRequest(this.req, true)
 
 router = new director.http.Router()
 
