@@ -166,6 +166,20 @@ class Master extends EventEmitter
       }
     }
     
+    reset = {
+      method: "GET",
+      path: "/bench/reset",
+      config: {
+        query: {
+          code: Hapi.Types.String().required()
+        },
+        handler: (req) ->
+          return req.reply(Hapi.Error.badRequest("Invalid code supplied")) if req.query.code != "walmartlabs"
+          status = self.start(self.options)
+          req.reply(status)
+      }
+    }
+    
     starter = {
       method: "GET",
       path: "/bench/start",
@@ -195,6 +209,7 @@ class Master extends EventEmitter
     }
     
     @admin.addRoute(initializer)
+    @admin.addRoute(reset)
     @admin.addRoute(starter)
     @admin.addRoute(finisher)
     @admin.start()

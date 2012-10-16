@@ -1,5 +1,6 @@
 _ = require("underscore")
 async = require("async")
+fs = require("fs")
 http = require("http")
 qs = require("querystring")
 request = require("request")
@@ -24,6 +25,8 @@ class Requester extends Statistics
     debug: false
   }
   
+  _tests: ["helloworld", "largeDownload", "largePOST", "massiveRouteTable"]
+  
   docopt2obj: (opts) ->
     obj = {
       requests: +opts["-n"],
@@ -36,32 +39,11 @@ class Requester extends Statistics
       debug: opts["--debug"]
     }
   
-  makeRequest: (i, callback) =>
+  helloworld: (i, callback) =>
     self = this
     i = self.requestCounter
     self.requestCounter++
     start_time = Date.now()
-    # requestsCount++
-    # start_time = Date.now()
-    # opts = {
-    #   host: @options.host,
-    #   port: 80
-    #   method: "GET",
-    #   path: "/"
-    # }
-    # console.log(opts)
-    
-    # console.log("making request")
-    # r = http.request(opts, (res) ->
-    #   res.on("end", () ->
-    #     console.log("request complete")
-    #     # end_time = Date.now()
-    #     # latency[i] = end_time - start_time
-    #     # responseCount++
-    #     callback(null)
-    #   )
-    # )
-    # r.end()
     opts = {
       method: "GET",
       uri: self.options.host+"/?id=" + self.options.id
@@ -74,13 +56,40 @@ class Requester extends Statistics
       callback(err)
     )
   
+  largeDownload: (i, callback) =>
+    @helloworld(i, callback)
+  
+  largePOST: (i, callback) =>
+    self = this
+    i = self.requestCounter
+    self.requestCounter++
+    contents = fs.readFileSync("/usr/share/dict/words")
+    start_time = Date.now()
+    opts = {
+      method: "POST",
+      uri: self.options.host+"/?id=" + self.options.id
+      body: contents
+    }
+    request(opts, (err, response, body) ->
+      end_time = Date.now()
+      self.latency[i] = end_time - start_time
+      self.responseCounter++
+      
+      callback(err)
+    )
+  
+  massiveRouteTable: (i, callback) =>
+    @helloworld(i, callback)
+  
   bench: (index, concurrents, max, callback) ->
+    self = this
+    
     return callback("invalid concurrents value") if not concurrents or isNaN(concurrents)
     return callback("invalid max value") if not max or isNaN(max)
     return callback(null) if index > (max - concurrents)
+    return callback("invalid test supplied #{self.options.test}") if self._tests.indexOf(self.options.test) < 0
     
-    self = this
-    async.forEach([1..concurrents], self.makeRequest, (err) ->
+    async.forEach([1..concurrents], self[self.options.test], (err) ->
       return callback(err) if err
       
       self.bench(index + concurrents, concurrents, max, callback)
@@ -161,6 +170,25 @@ class Requester extends Statistics
         throw e
       
       callback(err, data)
+    )
+  
+  resetBench: (callback = null) ->
+    url = [@options.admin, "bench", "reset"].join("/")
+    url += "?code=walmartlabs"
+    opts = {
+      method: "GET",
+      uri: url
+    }
+    request(opts, (err, response, body) ->
+      throw err if err
+      
+      try
+        data = JSON.parse(body)
+      catch e
+        console.log(body)
+        throw e
+      
+      callback(err, data) if callback and typeof callback == 'function'
     )
   
   printLatency: () ->

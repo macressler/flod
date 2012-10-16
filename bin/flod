@@ -15,6 +15,7 @@ Options:
   --admin=ADMINHOST              host to use for admin requests (if different from --host)[default: http://localhost:8000]
   --server=MODULE                server module to perform test on [default: hapi]
   --test=RUNNER                  test runner fileset (server, client) to use [default: helloworld]
+  --reset                        request a webserver reset
 """
 
 _ = require("underscore")
@@ -26,4 +27,8 @@ console.log("parsed options:", opts) if opts["--verbose"]
 
 Requester = require("../lib/requester")
 r = new Requester(opts)
-r.start()
+
+if opts["--reset"]
+  r.resetBench()
+else
+  r.start()
