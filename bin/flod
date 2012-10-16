@@ -22,41 +22,8 @@ _ = require("underscore")
 {spawn, exec} = require("child_process")
 
 opts = docopt(doc, {help: true, version: require("../package.json").version})
-console.log("options", opts) if opts["--verbose"]
+console.log("parsed options:", opts) if opts["--verbose"]
 
 Requester = require("../lib/requester")
 r = new Requester(opts)
 r.start()
-
-# logger = (type) ->
-#   return (data) ->
-#     console.log("[#{type}]: " + data)
-
-# bench = () ->
-#   requestOpts = (opts) ->
-#     return {
-#       HOST: opts["--host"],
-#       MAXREQUESTS: opts["-n"],
-#       CONCREQUESTS: opts["-c"],
-#       REQUESTPATH: opts["--path"]
-#     }
-  
-#   # TODO: use __dirname + "../src/requests.coffee", make sure it works in npm install -g mode
-#   requests = spawn('coffee', ['./src/requests.coffee'], {
-#     env: _.extend({}, process.env, requestOpts(opts))
-#   })
-#   requests.stdout.on("data", logger("STDOUT"))
-#   requests.stderr.on("data", logger("STDERR"))
-#   requests.on("exit", () ->
-#     process.exit()
-#   )
-
-
-# # Do stuff
-
-# if opts.bench == true
-  # Requester = require()
-  # return bench()
-
-# # if opts.server == true
-# #   # do stuff
