@@ -1,10 +1,10 @@
 {
-  "name": "hapi-benchmarking",
-  "description": "HTTP API Server framework",
+  "name": "flod",
+  "description": "benchmarking tool for node.js webservers",
   "homepage": "http://hapijs.com",
   "version": "0.0.1",
   "author": "Van Nguyen <thegoleffect@gmail.com>",
-  "repository": "git://github.com/thegoleffect/hapi-benchmarking",
+  "repository": "git://github.com/walmartlabs/flod",
   "main": "index",
   "keywords": [
     "framework",
@@ -35,7 +35,8 @@
     "chai": "1.2.x"
   },
   "bin": {
-    "flod": "./bin/flod"
+    "flod": "./bin/flod",
+    "flod-server": "./bin/flod-server"
   },
   "scripts": {},
   "licenses": [
