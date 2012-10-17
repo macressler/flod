@@ -19,7 +19,8 @@ class Master extends EventEmitter
     server: "hapi",
     test: "helloworld",
     metricInterval: 5000,
-    debug: true
+    debug: true,
+    fileExtension: ".js"
   }
   
   init: (options) ->
@@ -130,7 +131,7 @@ class Master extends EventEmitter
     return Hapi.Error.badRequest("Cannot (re)start server while benchmark is in progress") if @benchmark != null
     settings = _.extend({}, @options, settings)
     
-    serverFile = path.join(__dirname, settings.filePath, settings.server, settings.test + ".coffee")
+    serverFile = path.join(__dirname, settings.filePath, settings.server, settings.test + settings.fileExtension)
     console.log(serverFile) if @options.debug
     @server = fork(serverFile)
     @server.on('message', @onMessage)
