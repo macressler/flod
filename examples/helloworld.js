@@ -10,7 +10,7 @@ var Local = function (options) {
 
   util.mixin(this, require('../lib/support/base'));
   
-  this.options = options;
+  this.options = options || {};
   process.on('message', this.bind(this.onMessage, this));
 }
 Local.prototype.send = function (obj) {
@@ -21,7 +21,7 @@ Local.prototype.send = function (obj) {
 Local.prototype.onMessage = function (msg) {
   var data = null;
   
-  console.log(msg.action)
+  // console.log(msg.action)
   switch (msg.action) {
     case 'mem':
       data = process.memoryUsage();
@@ -30,7 +30,7 @@ Local.prototype.onMessage = function (msg) {
       data = os.loadavg();
       break;
     case 'info':
-      data = this.options.info || {};
+      data = this.options;
       break;
     default: 
       console.log("Local:: unexpected msg:", msg);
@@ -42,10 +42,10 @@ Local.prototype.onMessage = function (msg) {
 }
 
 
-var kali = new Local({info: {
+var kali = new Local({
   server: "hapi",
   version: "0.8.3"
-}});
+});
 var Hapi = require('hapi');
 
 
