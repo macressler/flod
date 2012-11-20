@@ -22,6 +22,7 @@ Local.prototype.onMessage = function (msg) {
       data = os.loadavg();
       break;
     default: 
+      console.log("Local:: unexpected msg:", msg);
       data = null;
       break;
   }
