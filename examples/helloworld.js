@@ -1,3 +1,8 @@
+module.exports.__info = {
+  server: "hapi",
+  version: "0.8.3"
+};
+
 // var kali = new require('kali').Local;
 var os = require('os');
 var Local = function () {
