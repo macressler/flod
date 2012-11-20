@@ -1,4 +1,10 @@
 // var kali = new require('kali').Local;
+
+module.exports.__info = {
+  server: "hapi",
+  version: "0.8.3"
+}
+
 var os = require('os');
 var Local = function () {
   
@@ -16,8 +22,14 @@ Local.prototype.onMessage = function (msg) {
     case 'load':
       data = os.loadavg();
       break;
+    case 'exit':
+      if (!this.exit) {
+        process.exit();
+      }
+      this.exit();
+      break;
     default: 
-      data = null;
+      return null;
       break;
   }
   
@@ -48,4 +60,5 @@ var hello = {
 
 server.addRoute(hello);
 kali.send({action: 'started', data: 1});
+kali.exit = server.stop;
 server.start();
