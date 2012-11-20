@@ -40,7 +40,6 @@ Local.prototype.onMessage = function (msg) {
       break;
     default: 
       console.log("Local:: unexpected msg:", msg);
-      // data = null;
       break;
   }
   
@@ -50,10 +49,10 @@ Local.prototype.onMessage = function (msg) {
 
 var kali = new Local({
   server: "hapi",
-  version: "0.8.3"
+  version: "0.8.3",
+  file: "helloworld"
 });
 var Hapi = require('hapi');
-
 
 host = process.env.HOST || 'localhost'
 port = process.env.PORT || 3000
@@ -74,5 +73,4 @@ var hello = {
 
 server.addRoute(hello);
 kali.send({action: 'started', data: 1});
-kali.exit = server.stop;
 server.start();

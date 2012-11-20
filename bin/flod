@@ -5,4 +5,5 @@ var opts = docopt(doc, {help: true, version: require(__dirname + '/../package.js
 
 var Client = require('../lib/client');
 
+opts.rootPath = process.cwd();
 var c = new Client(opts, process.env);
