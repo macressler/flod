@@ -10,7 +10,8 @@
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "hapi": "0.8.3"
+    "hapi": "0.8.3",
+    "kali": "0.0.1"
   },
   "devDependencies": {},
   "scripts": {},
