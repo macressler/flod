@@ -7,8 +7,9 @@ var kali = new Kali({
 
 var Hapi = require('hapi');
 
-host = process.env.HOST || 'localhost'
-port = process.env.PORT || 3000
+var host = process.env.HOST || 'localhost';
+var port = process.env.PORT || 3000;
+
 var server = new Hapi.Server(host, port);
 var hello = {
   method: 'GET',

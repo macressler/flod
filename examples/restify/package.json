@@ -1,5 +1,5 @@
 {
-  "name": "flod-example-hapi-helloworld",
+  "name": "flod-example-restify-helloworld",
   "description": "test files for use with flod",
   "homepage": "http://hapijs.com",
   "version": "0.0.1",
@@ -10,7 +10,7 @@
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "hapi": "0.8.3",
+    "restify": "1.4.4",
     "kali": "0.0.1"
   },
   "devDependencies": {},
