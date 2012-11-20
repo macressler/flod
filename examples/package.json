@@ -4,7 +4,7 @@
   "homepage": "http://hapijs.com",
   "version": "0.0.1",
   "author": "Van Nguyen <thegoleffect@gmail.com>",
-  "repository": "git://github.com/thegoleffect/flod-webservers",
+  "repository": "git://github.com/thegoleffect/flod",
   "keywords": [],
   "engines": {
     "node": ">=0.8.0"

@@ -1,3 +1,8 @@
+// module.exports.__info = {
+//   server: "hapi",
+//   version: "0.8.3"
+// };
+
 // var kali = new require('kali').Local;
 
 module.exports.__info = {
@@ -6,8 +11,13 @@ module.exports.__info = {
 }
 
 var os = require('os');
-var Local = function () {
+var util = require('../lib/support/util');
+var Local = function (options) {
+
+  util.mixin(this, require('../lib/support/base'));
   
+  this.options = options || {};
+  process.on('message', this.bind(this.onMessage, this));
 }
 Local.prototype.send = function (obj) {
   if (process.send) {
@@ -15,6 +25,9 @@ Local.prototype.send = function (obj) {
   }
 }
 Local.prototype.onMessage = function (msg) {
+  var data = null;
+  
+  // console.log(msg.action)
   switch (msg.action) {
     case 'mem':
       data = process.memoryUsage();
@@ -22,14 +35,12 @@ Local.prototype.onMessage = function (msg) {
     case 'load':
       data = os.loadavg();
       break;
-    case 'exit':
-      if (!this.exit) {
-        process.exit();
-      }
-      this.exit();
+    case 'info':
+      data = this.options;
       break;
     default: 
-      return null;
+      console.log("Local:: unexpected msg:", msg);
+      // data = null;
       break;
   }
   
@@ -37,7 +48,10 @@ Local.prototype.onMessage = function (msg) {
 }
 
 
-var kali = new Local();
+var kali = new Local({
+  server: "hapi",
+  version: "0.8.3"
+});
 var Hapi = require('hapi');
 
 
