@@ -1,5 +1,5 @@
 {
-  "name": "flod-example-director-helloworld",
+  "name": "flod-example-express-helloworld",
   "description": "test files for use with flod",
   "homepage": "http://hapijs.com",
   "version": "0.0.1",
@@ -10,8 +10,8 @@
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "director": "1.1.8",
-    "kali": "0.0.1"
+    "express": "3.0.1",
+    "kali": ">= 0.0.1"
   },
   "devDependencies": {},
   "scripts": {},

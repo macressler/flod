@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var docopt = require('docopt').docopt;
-var doc = require("../lib/docs/flodd");
+var doc = require("../lib/docopt/flodd");
 var opts = docopt(doc, {help: true, version: require('../package.json').version});
 
 // console.log(opts);

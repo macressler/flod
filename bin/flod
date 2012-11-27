@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var docopt = require('docopt').docopt;
-var doc = require("../lib/docs/flod");
+var doc = require("../lib/docopt/flod");
 var opts = docopt(doc, {help: true, version: require(__dirname + '/../package.json').version});
 
 var Client = require('../lib/client');

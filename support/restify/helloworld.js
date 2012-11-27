@@ -1,9 +1,7 @@
 var Kali = require('kali').Local;
 var kali = new Kali({
-  server: "restify",
-  version: "1.4.4",
-  file: "helloworld"
-});
+  server: "restify"
+}, global);
 
 var restify = require('restify');
 

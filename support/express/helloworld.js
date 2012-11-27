@@ -1,9 +1,7 @@
 var Kali = require('kali').Local;
 var kali = new Kali({
-  server: "express",
-  version: "3.0.1",
-  file: "helloworld"
-});
+  server: "express"
+}, global);
 
 var express = require('express');
 

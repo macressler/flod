@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "restify": "1.4.4",
-    "kali": "0.0.1"
+    "kali": ">= 0.0.1"
   },
   "devDependencies": {},
   "scripts": {},

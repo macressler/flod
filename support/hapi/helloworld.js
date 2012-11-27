@@ -1,9 +1,7 @@
 var Kali = require('kali').Local;
 var kali = new Kali({
-  server: "hapi",
-  version: "0.8.3",
-  file: "helloworld"
-});
+  server: "hapi"
+}, global);
 
 var Hapi = require('hapi');
 

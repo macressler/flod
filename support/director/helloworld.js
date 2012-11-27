@@ -1,9 +1,7 @@
 var Kali = require('kali').Local;
 var kali = new Kali({
-  server: "director",
-  version: "1.1.8",
-  file: "helloworld"
-});
+  server: "director"
+}, global);
 
 var director = require('director');
 var http = require('http');
