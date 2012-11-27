@@ -2,7 +2,6 @@ module.exports = """
 Usage: 
   flod [<action>] [options]
   flod compare <files>... [options]
-  flod list [<pattern>] [options]
 
 Options:
   -h, --help                     show this help message and quit
