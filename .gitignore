@@ -8,11 +8,19 @@ lib-cov
 *.gz
 
 pids
+<<<<<<< HEAD
 logs/*.json
+=======
+logs
+>>>>>>> c9878da587de57596ce8b142cc17e0d666b3d4d6
 results
 
 node_modules
 npm-debug.log
 
+<<<<<<< HEAD
 sftp-config.json
 *.DS_Store
+=======
+sftp-config.json
+>>>>>>> c9878da587de57596ce8b142cc17e0d666b3d4d6
