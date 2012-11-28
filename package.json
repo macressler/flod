@@ -3,7 +3,7 @@
   "description": "Node.js Web Framework benchmarking tool",
   "preferGlobal": true,
   "homepage": "http://hapijs.com",
-  "version": "0.0.2-0",
+  "version": "0.0.2-1",
   "author": "Van Nguyen <thegoleffect@gmail.com>",
   "repository": "git://github.com/thegoleffect/flod",
   "engines": {
