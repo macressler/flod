@@ -1,7 +1,7 @@
 module.exports = """
 Usage: 
   flod <action> [options]
-  flod run [options]
+  flod bench [options]
   flod compare <files>... [options]
   flod clean [options]
 
