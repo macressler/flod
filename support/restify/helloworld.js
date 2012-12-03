@@ -1,6 +1,6 @@
 var Kali = require('kali').Local;
 var kali = new Kali({
-  server: "restify"
+    server: "restify"
 }, global);
 
 var restify = require('restify');
@@ -13,8 +13,8 @@ var port = process.env.PORT || 3000;
 
 server.get('/', function (req, res) {
 
-  res.send("Hello World.");
-  kali.send({action: 'request', data: req.query.id});
+    res.send("Hello World.");
+    kali.send({action: 'request', data: req.query.id});
 })
 
 kali.send({action: 'started', data: 1});
