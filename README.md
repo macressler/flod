@@ -46,7 +46,7 @@ In the `flod-webservers` folder:
 In another terminal:
 
     flod --host=http://localhost:3000 --admin=http://localhost:8080 --output=./log -n 10000 -c 100
-    flod --file=lib/hapi/0.8.0/helloworld.js --host=http://localhost:3000 --admin=http://localhost:8080 --output=./log -n 10000 -c 100
+    flod --file=lib/hapi/0.8.4/helloworld.js --host=http://localhost:3000 --admin=http://localhost:8080 --output=./log -n 10000 -c 100
     flod compare logs/bench-hapi-0.9.0-... logs/bench-hapi-0.8.0-...
 
 Adjust the settings to your heart's content:
@@ -79,7 +79,7 @@ For safety, it will backup copies of the data in the `logs` folder.
 
 ## Flod
 
-`./flod` is the client - it notifies flodd to initialize the server and benchmark data. Then, it repeatedly makes HTTP requests to flodd until the specified number of requests has been met. It collects timing and latency data. On completion, it will download the operational metrics from the server and compile into a dataset for the given benchmark.  The datasets gets written out to the output folder.
+`./flod` is the client - it notifies flodd to initialize the server and benchmark data. Then, it repeatedly makes HTTP requests to flodd until the specified number of requests has been met. Along the way, it collects timing and latency data. On completion, it will download the operational metrics from the server and compile into a dataset for the given benchmark.  The datasets gets backed up as json in the output folder by server module, version, and timestamp.
 
 It also has the ability compare datasets. This allows developers to compare different webservers, different versions of a webserver, different times the benches were run, etc.
 
