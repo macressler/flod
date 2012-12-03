@@ -10,6 +10,6 @@ Options:
   --version                      show version
   --noBackups                    disable storing data in ./logs folder
   --metricInterval=INTERVAL      interval to poll server metrics in seconds
-  --logPath=LOGPATH              place to store backup files [default: ./logs/]
+  --output=OUTPATH               place to store output files [default: ./logs/]
   --logPrefix=LOGPREFIX          prefix for backup files [default: bench]
 """
