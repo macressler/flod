@@ -1,29 +1,31 @@
 <a href="/walmartlabs/blammo"><img src="https://raw.github.com/walmartlabs/blammo/master/images/from.png" align="right" /></a>
-# flod
+![flod Logo](https://raw.github.com/walmartlabs/log/master/images/flod.png)
 
-A systematic toolchain for benchmarking and comparing Node.js web server frameworks. **flod** enables developers to compare the performance of different versions of their frameworks and to other frameworks. 
+A systematic toolchain for benchmarking and comparing Node.js web server frameworks. **flod** enables developers to compare the performance of different versions of their frameworks and to other frameworks.
+
+[![Build Status](https://secure.travis-ci.org/walmartlabs/flod.png)](http://travis-ci.org/walmartlabs/flod)
 
 # Table of Contents
 
 - [**Installation**](#installation)
 - [**Usage**](#usage)
-    - [**Basic Usage**](#basic-usage)
-    - [**Typical Usage**](#typical-usage)
+- [**Basic Usage**](#basic-usage)
+- [**Typical Usage**](#typical-usage)
 - [**Overview**](#overview)
 - [**Configuration**](#configuration)
-    - [**Daemon (./flodd) Configuration](#daemon-configuration)
-    - [**Client (./flod) Configuration](#client-configuration)
-    - [**Webserver Configuration**](#webserver-configuration)
+- [**Daemon (./flodd) Configuration](#daemon-configuration)
+- [**Client (./flod) Configuration](#client-configuration)
+- [**Webserver Configuration**](#webserver-configuration)
 
 # Installation
 
 Install using npm:
 
-    npm install -g flod
+npm install -g flod
 
 OR by cloning this repository:
 
-    git clone https://github.com/walmartlabs/flod.git
+git clone https://github.com/walmartlabs/flod.git
 
 
 
@@ -31,7 +33,7 @@ OR by cloning this repository:
 
 To use flod, you must give it some webserver(s) to bench.  The easiest way to get started is to fork the starter template `flod-webservers`:
 
-    git clone https://github.com/thegoleffect/flod-webservers
+git clone https://github.com/thegoleffect/flod-webservers
 
 Inside the `lib` folder are server files for four different Node webservers organized by version.
 
@@ -41,13 +43,13 @@ For each file you want to bench, you must go into the folder and run `npm instal
 
 In the `flod-webservers` folder:
 
-    flodd run lib/hapi/0.9.0/helloworld.js
+flodd run lib/hapi/0.9.0/helloworld.js
 
 In another terminal:
 
-    flod --host=http://localhost:3000 --admin=http://localhost:8080 --output=./log -n 10000 -c 100
-    flod --file=lib/hapi/0.8.4/helloworld.js --host=http://localhost:3000 --admin=http://localhost:8080 --output=./log -n 10000 -c 100
-    flod compare logs/bench-hapi-0.9.0-... logs/bench-hapi-0.8.0-...
+flod --host=http://localhost:3000 --admin=http://localhost:8080 --output=./log -n 10000 -c 100
+flod --file=lib/hapi/0.8.4/helloworld.js --host=http://localhost:3000 --admin=http://localhost:8080 --output=./log -n 10000 -c 100
+flod compare logs/bench-hapi-0.9.0-... logs/bench-hapi-0.8.0-...
 
 Adjust the settings to your heart's content:
 
@@ -71,7 +73,7 @@ The *flod* toolchain has three parts:
 
 ## Flodd
 
-`./flodd` is the daemon - it runs the admin webserver responsible for responding to benchmark requests. It spawns the webserver to be tested/benched in a separate process and monitors operational metrics like memory usage, cpu load, etc. 
+`./flodd` is the daemon - it runs the admin webserver responsible for responding to benchmark requests. It spawns the webserver to be tested/benched in a separate process and monitors operational metrics like memory usage, cpu load, etc.
 
 For the most accurate data collection, only one benchmark can run at a time.
 
