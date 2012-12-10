@@ -1,26 +1,18 @@
-lib-cov
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-
-pids
-<<<<<<< HEAD
-logs/*.json
-=======
-logs
->>>>>>> c9878da587de57596ce8b142cc17e0d666b3d4d6
-results
-
-node_modules
+.idea
+*.iml
 npm-debug.log
+dump.rdb
+node_modules
+results.tap
+results.xml
+npm-shrinkwrap.json
+config.json
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+._*
+*/._*
+*/*/._*
+coverage.*
+lib-cov
 
-<<<<<<< HEAD
-sftp-config.json
-*.DS_Store
-=======
-sftp-config.json
->>>>>>> c9878da587de57596ce8b142cc17e0d666b3d4d6

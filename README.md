@@ -1,5 +1,5 @@
-flod
-====
+<a href="/walmartlabs/blammo"><img src="https://raw.github.com/walmartlabs/blammo/master/images/from.png" align="right" /></a>
+# flod
 
 A systematic toolchain for benchmarking and comparing Node.js web server frameworks. **flod** enables developers to compare the performance of different versions of their frameworks and to other frameworks. 
 

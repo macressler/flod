@@ -1,1 +1,1 @@
-var index = require("./lib/index");
+var index = require('./lib');
