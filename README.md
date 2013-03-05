@@ -1,9 +1,9 @@
-<a href="https://github.com/walmartlabs/blammo"><img src="https://raw.github.com/walmartlabs/blammo/master/images/from.png" align="right" /></a>
+<a href="https://github.com/spumko"><img src="https://raw.github.com/spumko/spumko/master/images/from.png" align="right" /></a>
 ![flod Logo](/images/flod.png)
 
 A systematic toolchain for benchmarking and comparing Node.js web server frameworks. **flod** enables developers to compare the performance of different versions of their frameworks and to other frameworks.
 
-[![Build Status](https://secure.travis-ci.org/walmartlabs/flod.png)](http://travis-ci.org/walmartlabs/flod)
+[![Build Status](https://secure.travis-ci.org/spumko/flod.png)](http://travis-ci.org/spumko/flod)
 
 # Table of Contents
 
@@ -25,7 +25,7 @@ npm install -g flod
 
 OR by cloning this repository:
 
-git clone https://github.com/walmartlabs/flod.git
+git clone https://github.com/spumko/flod.git
 
 
 
