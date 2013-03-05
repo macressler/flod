@@ -4,7 +4,7 @@
   "preferGlobal": true,
   "version": "0.0.8",
   "author": "Van Nguyen <thegoleffect@gmail.com>",
-  "repository": "git://github.com/walmartlabs/flod",
+  "repository": "git://github.com/spumko/flod",
   "engines": {
     "node": "0.8.x"
   },
@@ -37,7 +37,7 @@
   "licenses": [
     {
       "type": "BSD",
-      "url": "http://github.com/walmartlabs/flod/raw/master/LICENSE"
+      "url": "http://github.com/spumko/flod/raw/master/LICENSE"
     }
   ]
 }
