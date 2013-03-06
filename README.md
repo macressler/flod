@@ -1,5 +1,5 @@
 <a href="https://github.com/spumko"><img src="https://raw.github.com/spumko/spumko/master/images/from.png" align="right" /></a>
-![flod Logo](/images/flod.png)
+![flod Logo](https://raw.github.com/spumko/flod/master/images/flod.png)
 
 A systematic toolchain for benchmarking and comparing Node.js web server frameworks. **flod** enables developers to compare the performance of different versions of their frameworks and to other frameworks.
 
