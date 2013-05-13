@@ -20,7 +20,7 @@
     "underscore": "1.4.x"
   },
   "devDependencies": {
-    "mocha": "1.x.x",
+    "mocha": "1.8.x",
     "chai": "1.x.x",
     "blanket": "1.0.x",
     "travis-cov": "0.2.x"
