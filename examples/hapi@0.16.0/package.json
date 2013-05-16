@@ -8,6 +8,6 @@
   "author": "",
   "license": "BSD",
   "dependencies": {
-    "hapi": "~0.16.0"
+    "hapi": "0.16.0"
   }
 }
