@@ -1,4 +1,4 @@
-var Flod = /*require('flod'); // */require('../../');
+var Flod = require('../../'); // require('flod') if not run from this repo
 var Fs = require('fs');
 var Hapi = require('hapi');
 
