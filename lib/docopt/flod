@@ -1,0 +1,28 @@
+Usage:
+  flod [options] (<filename> | <url>)
+
+Options:
+  -h, --help          show this help message and quit
+  -v, --verbose       verbose mode, show all debug logging
+  -s, --silent        silent mode, silences stdout
+  
+  -n MAX_REQS         total number of requests to send per batch [default: 1000]
+  -c CONCURRENTS      number range of concurrent requests to perform per batch [default: 100..100]
+  -e CONC_INCR        number of concurrent requests incremented per batch [default: 100]
+  
+  -m METHOD           HTTP Method to use for requests [default: GET]
+  -u URI              uri to make requests to [default: /]
+  -p PAYLOADFILE      file to use for PUT/POST payload
+  -C COOKIEFILE       file to use for cookie (one cookie per line)
+  
+  -z METRICINTERVAL   time in milliseconds to poll for operational metrics [default: 500]
+  
+  -o OUTPUTPATH       path prefix for exporting output benchmark data to file [default: ./data]
+  -l LOGPATH          path for exporting debug and log data to file (silences stdout unless verbose mode on)
+  
+  -d, --daemon        run the server daemon but do not perform benchmark
+  --host HOSTNAME     hostname used for filename's server [default: localhost]
+  --port PORT         port used to bind & access filename's server [default: 3000]
+  --https             https mode [default: false]
+  --store-responses   whether or not to store response data per request [default: false]
+  --store-data        whether or not to store latency, mem, load on completion [default: true]

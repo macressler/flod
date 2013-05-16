@@ -1,0 +1,10 @@
+{
+  "name": "hapi-1.0.0-benchmark",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}

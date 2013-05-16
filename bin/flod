@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 var docopt = require('docopt').docopt;
-var doc = require("../lib/docopt/flod");
-var opts = docopt(doc, {help: true, version: require(__dirname + '/../package.json').version});
+var fs = require('fs');
+var path = require('path');
+var doc = fs.readFileSync(path.join(__dirname, '../lib/docopt/flod')).toString();
+var opts = docopt(doc, {
+    help: true,
+    version: require(__dirname + '/../package.json').version
+});
 
 var Client = require('../lib/client');
 
 opts.rootPath = process.cwd();
+if (process.env.DEBUG) { console.log(opts); }
 var c = new Client(opts, process.env);

@@ -1,9 +1,0 @@
-#!/usr/bin/env node
-var docopt = require('docopt').docopt;
-var doc = require("../lib/docopt/flodd");
-var opts = docopt(doc, {help: true, version: require('../package.json').version});
-
-var Daemon = require("../lib/daemon");
-
-opts.rootPath = process.cwd();
-var d = new Daemon(opts, process.env);
