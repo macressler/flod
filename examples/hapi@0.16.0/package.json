@@ -1,0 +1,13 @@
+{
+  "name": "hapi-0.16.0-benchmark",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": "",
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "hapi": "0.16.0"
+  }
+}
