@@ -5,90 +5,99 @@ A systematic toolchain for benchmarking and comparing Node.js web server framewo
 
 [![Build Status](https://secure.travis-ci.org/spumko/flod.png)](http://travis-ci.org/spumko/flod)
 
+**Warning**: Only Hapi web server is currently supported by v0.1.0. Other servers will be supported in the future, see [**TODO**](#todo) for more information.
+
+
 # Table of Contents
 
 - [**Installation**](#installation)
+- [**Quick Start**](#quick-start)
 - [**Usage**](#usage)
-- [**Basic Usage**](#basic-usage)
-- [**Typical Usage**](#typical-usage)
-- [**Overview**](#overview)
-- [**Configuration**](#configuration)
-- [**Daemon (./flodd) Configuration](#daemon-configuration)
-- [**Client (./flod) Configuration](#client-configuration)
-- [**Webserver Configuration**](#webserver-configuration)
+    - [Local Testing](#local-bench)
+    - [Remote Testing](#remote-testing)
+    - [Probe](#probe)
+    - [Daemon](#daemon)
+- [**TODO**](#todo)
 
-# Installation
+
+## Installation
 
 Install using npm:
 
-npm install -g flod
+    npm install -g flod
 
 OR by cloning this repository:
 
-git clone https://github.com/spumko/flod.git
+    git clone https://github.com/spumko/flod.git
 
 
+## Quick Start
 
-# Usage
+If installed globally with `-g`, the fastest way to try out flod is to run a local benchmark. Here are instructions on how to run a local benchmark on hapi version 1.0.0:
 
-To use flod, you must give it some webserver(s) to bench.  The easiest way to get started is to fork the starter template `flod-webservers`:
-
-git clone https://github.com/thegoleffect/flod-webservers
-
-Inside the `lib` folder are server files for four different Node webservers organized by version.
-
-For each file you want to bench, you must go into the folder and run `npm install` to install the requisite modules for that server file.
-
-## Basic Usage
-
-In the `flod-webservers` folder:
-
-flodd run lib/hapi/0.9.0/helloworld.js
-
-In another terminal:
-
-flod --host=http://localhost:3000 --admin=http://localhost:8080 --output=./log -n 10000 -c 100
-flod --file=lib/hapi/0.8.4/helloworld.js --host=http://localhost:3000 --admin=http://localhost:8080 --output=./log -n 10000 -c 100
-flod compare logs/bench-hapi-0.9.0-... logs/bench-hapi-0.8.0-...
-
-Adjust the settings to your heart's content:
-
-* `-n` is the total number of requests to make.
-* `-c` is the number of concurrent requests allowed at a time (flod will attempt to hit this but may not necessarily do so depending on system performance)
+    cd examples/hapi@1.0.0
+    npm install
+    flod index.js
 
 
+To see all of the available options and settings, run:
 
-## Typical Usage
-
-A more typical usage scenario would be to run the `./flodd` daemon on an isolated, beefy remote server. Then, run the client `./flod` either locally or from yet another server (which does not have to be very powerful).
-
-
-# Overview
-
-The *flod* toolchain has three parts:
-
-* `./flodd`
-* `./flod`
-* webservers
-
-## Flodd
-
-`./flodd` is the daemon - it runs the admin webserver responsible for responding to benchmark requests. It spawns the webserver to be tested/benched in a separate process and monitors operational metrics like memory usage, cpu load, etc.
-
-For the most accurate data collection, only one benchmark can run at a time.
-
-For safety, it will backup copies of the data in the `logs` folder.
-
-## Flod
-
-`./flod` is the client - it notifies flodd to initialize the server and benchmark data. Then, it repeatedly makes HTTP requests to flodd until the specified number of requests has been met. Along the way, it collects timing and latency data. On completion, it will download the operational metrics from the server and compile into a dataset for the given benchmark.  The datasets gets backed up as json in the output folder by server module, version, and timestamp.
-
-It also has the ability compare datasets. This allows developers to compare different webservers, different versions of a webserver, different times the benches were run, etc.
+    flod -h
 
 
+## Usage
 
-# Configuration
+Flod is designed to benchmark web servers. Flod will flood the webserver with a optionally specified number of concurrent requests and measure the latencies of each request until the specific total number of requests has been made.
 
-## Daemon Configuration
+Benchmarking JavaScript web servers is where flod really shines. With the use of the `flod.Probe`, flod is able to track useful metrics like memory usage and cpu load during the course of the benchmark. 
 
-## Client Configuration
+
+### Local Testing
+
+To run a local JavaScript server benchmark, flod has the following basic syntax:
+
+    flod [options] <filename>
+
+where `filename` is a JavaScript file that starts a web server.
+
+
+### Remote Testing
+
+To perform a benchmark on a remote host, flod has the following basic syntax:
+
+    flod [options] <URL>
+
+where `URL` is a fully formed URL (with protocol http/https, hostname, path (and perhaps a port if not 80)).
+
+If the remote host is running `flod.Probe`, additional statistics will be printed.
+
+
+### Probe
+
+To provide additional metrics during a JavaScript server benchmark, use the flod Probe.
+
+From within the JS server file, include the following snippet:
+
+```javascript
+var Flod = require('flod');
+var probe = new Flod.Probe(server, {server: SERVER, version: VERSION});
+```
+
+where `SERVER` could be `hapi` and `VERSION` could be `1.0.0` - change these to fit your needs.
+
+**Note**: As mentioned earlier, only Hapi servers are supported at the moment.
+
+### Daemon
+
+To perform a benchmark of a JavaScript server on a different, remote computer, flod can daemonize a server file with the flag `--daemon`. This allows flod to perform a remote test as shown in [Remote Testing](#remote-testing).
+
+    flod --daemon some_file.js
+
+
+## TODO
+
+* Merge in generalized web server support (to support express, restify, etc)
+* Multi-threaded request support
+* Tests & 100% Coverage
+* Document graph/chart generation
+

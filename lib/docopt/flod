@@ -25,4 +25,4 @@ Options:
   --port PORT         port used to bind & access filename's server [default: 3000]
   --https             https mode [default: false]
   --store-responses   whether or not to store response data per request [default: false]
-  --store-data        whether or not to store latency, mem, load on completion [default: true]
+  --store-data        whether or not to store latency, mem, load on completion [default: false]
