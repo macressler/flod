@@ -1,0 +1,13 @@
+{
+  "name": "express-3.2.4-benchmark",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": "",
+  "dependencies": {
+    "express": "3.2.4"
+  },
+  "author": "",
+  "license": "BSD"
+}

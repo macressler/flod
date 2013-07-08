@@ -1,0 +1,13 @@
+{
+  "name": "restify-2.6.0-benchmark",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": "",
+  "dependencies": {
+    "restify": "2.6.0"
+  },
+  "author": "",
+  "license": "BSD"
+}

@@ -2,7 +2,7 @@
   "name": "flod",
   "description": "Node.js Web Framework benchmarking tool",
   "preferGlobal": true,
-  "version": "0.1.1-a",
+  "version": "0.2.0",
   "author": "Van Nguyen <thegoleffect@gmail.com>",
   "repository": "git://github.com/spumko/flod",
   "engines": {
@@ -14,7 +14,10 @@
     "hapi": "1.x.x",
     "joi": "0.3.x",
     "request": "2.x.x",
-    "underscore": "1.4.x"
+    "underscore": "1.4.x",
+    "semver": "~1.1.4",
+    "hoek": "~0.9.1",
+    "easy-table": "~0.2.0"
   },
   "devDependencies": {
     "lab": "0.1.x",
@@ -27,8 +30,16 @@
   },
   "scripts": {
     "test": "make test && make test-cov",
-    "blanket": { "pattern": "//^((?!\/node_modules\/)(?!\/test\/).)*$/ig", "onlyCwd": true, "data-cover-flags": { "branchTracking": true } },
-    "travis-cov": { "threshold": 100 }
+    "blanket": {
+      "pattern": "//^((?!/node_modules/)(?!/test/).)*$/ig",
+      "onlyCwd": true,
+      "data-cover-flags": {
+        "branchTracking": true
+      }
+    },
+    "travis-cov": {
+      "threshold": 100
+    }
   },
   "licenses": [
     {
