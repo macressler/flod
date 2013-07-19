@@ -2,9 +2,8 @@ var Flod = require('../../'); // require('flod') if not run from this repo
 var Fs = require('fs');
 var Hapi = require('hapi');
 
-var server = new Hapi.Server(process.env.port || 3000);
+var server = new Hapi.Server(+process.env.port || 3000);
 var probe = new Flod.Probe(server, {server: 'hapi', version: '0.16.0'});
-
 
 var hello = {
     method: 'GET',
@@ -51,6 +50,15 @@ var stream = {
     }
 };
 server.addRoute(stream);
+
+var fileroute = {
+    method: 'GET',
+    path: '/file',
+    handler: {
+        file: './index.js'
+    }
+};
+server.addRoute(fileroute);
 
 server.start(function(){
     console.log('server started on port ' + server.settings.port);

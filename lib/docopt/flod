@@ -1,5 +1,5 @@
 Usage:
-  flod [options] (<filename> | <url>)
+  flod [options] <filename_or_url>...
 
 Options:
   -h, --help          show this help message and quit
@@ -8,7 +8,7 @@ Options:
   
   -n MAX_REQS         total number of requests to send per batch [default: 1000]
   -c CONCURRENTS      number range of concurrent requests to perform per batch [default: 100..100]
-  -e CONC_INCR        number of concurrent requests incremented per batch [default: 100]
+  -i CONC_INCR        number of concurrent requests incremented per batch [default: 100]
   
   -m METHOD           HTTP Method to use for requests [default: GET]
   -u URI              uri to make requests to [default: /]
@@ -17,7 +17,7 @@ Options:
   
   -z METRICINTERVAL   time in milliseconds to poll for operational metrics [default: 500]
   
-  -o OUTPUTPATH       path prefix for exporting output benchmark data to file [default: ./data]
+  -o OUTPUTPATH       path prefix for exporting output benchmark data to file
   -l LOGPATH          path for exporting debug and log data to file (silences stdout unless verbose mode on)
   
   -d, --daemon        run the server daemon but do not perform benchmark

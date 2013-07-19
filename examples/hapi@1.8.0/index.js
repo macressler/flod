@@ -3,7 +3,7 @@ var Fs = require('fs');
 var Hapi = require('hapi');
 
 var server = new Hapi.Server(+process.env.port || 3000);
-var probe = new Flod.Probe(server, {server: 'hapi', version: '1.0.0'});
+var probe = new Flod.Probe(server, {server: 'hapi', version: '1.8.0'});
 
 var hello = {
     method: 'GET',
