@@ -12,7 +12,8 @@ Options:
   
   -m METHOD           HTTP Method to use for requests [default: GET]
   -u URI              uri to make requests to [default: /]
-  -p PAYLOADFILE      file to use for PUT/POST payload
+  -p PAYLOADFILE      JSON file to use for PUT/POST payload
+  -f PAYLOADFILE      raw file to use for PUT/POST payload
   -C COOKIEFILE       file to use for cookie (one cookie per line)
   
   -z METRICINTERVAL   time in milliseconds to poll for operational metrics [default: 500]
@@ -24,5 +25,4 @@ Options:
   --host HOSTNAME     hostname used for filename's server [default: localhost]
   --port PORT         port used to bind & access filename's server [default: 3000]
   --https             https mode [default: false]
-  --store-responses   whether or not to store response data per request [default: false]
   --store-data        whether or not to store latency, mem, load on completion [default: false]
