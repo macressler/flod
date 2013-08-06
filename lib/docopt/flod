@@ -18,11 +18,10 @@ Options:
   
   -z METRICINTERVAL   time in milliseconds to poll for operational metrics [default: 500]
   
-  -o OUTPUTPATH       path prefix for exporting output benchmark data to file
-  -l LOGPATH          path for exporting debug and log data to file (silences stdout unless verbose mode on)
+  -o OUTPUTFILE       export benchmark data to OUTPUTFILE
+  --force             force overwriting OUTPUTFILE [default: false]
   
   -d, --daemon        run the server daemon but do not perform benchmark
   --host HOSTNAME     hostname used for filename's server [default: localhost]
   --port PORT         port used to bind & access filename's server [default: 3000]
   --https             https mode [default: false]
-  --store-data        whether or not to store latency, mem, load on completion [default: false]
