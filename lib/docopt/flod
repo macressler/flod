@@ -17,6 +17,7 @@ Options:
   -C COOKIEFILE       file to use for cookie (one cookie per line)
   
   -z METRICINTERVAL   time in milliseconds to poll for operational metrics [default: 500]
+  -t TIMEOUT          time in milliseconds to wait for a request to complete [default: 1500]
   
   -o OUTPUTFILE       export benchmark data to OUTPUTFILE
   --force             force overwriting OUTPUTFILE [default: false]
