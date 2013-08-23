@@ -10,10 +10,13 @@ var hello = {
     path: '/',
     config: {
         validate: {
-            query: {
-                id: Hapi.types.String()
-            }
+            query: true
         },
+        // validate: {
+        //     query: {
+        //         id: Hapi.types.String()
+        //     }
+        // },
         handler: function (request) {
 
             request.reply('Hello World.');

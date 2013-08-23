@@ -34,5 +34,6 @@ while (c < ROUTE_TABLE_LENGTH) {
 
 
 server.start(function(){
-    console.log('server started on port ' + server.info.port);
+    console.log(server)
+    console.log('server started on port ' + server.settings.port);
 });
