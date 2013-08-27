@@ -127,6 +127,8 @@ To perform a benchmark of a JavaScript server on a different, remote computer, f
 
     flod --daemon some_file.js
 
+By default, the server will expose `http://localhost:3000`.
+
 
 ## API 
 
