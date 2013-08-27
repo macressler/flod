@@ -11,13 +11,13 @@ A systematic toolchain for benchmarking and comparing Node.js web server framewo
 - [**Installation**](#installation)
 - [**Quick Start**](#quick-start)
 - [**Uses**](#uses)
-    - [Local Testing](#local-bench)
+    - [Local Testing](#local-testing)
     - [Remote Testing](#remote-testing)
 - [**Usage**](#usage)
     - [Understanding the Output](#understanding-the-output)
     - [Useful Flags and Options](#useful-flags-and-options)
     - [Examples](#examples)
-    - [Daemon](#daemon)
+    - [Daemon Mode](#daemon-mode)
 - [Probe](#probe)
 
 
@@ -128,7 +128,9 @@ To perform a benchmark of a JavaScript server on a different, remote computer, f
     flod --daemon some_file.js
 
 
-## Probe
+## API 
+
+### Probe
 
 To provide additional metrics during a JavaScript server benchmark, use the flod Probe.
 
@@ -141,9 +143,9 @@ var probe = new Flod.Probe(server, {server: SERVER, version: VERSION});
 
 where `SERVER` could be `hapi` and `VERSION` could be `1.0.0` - change these to fit your needs.
 
-### Probe API
+#### Probe API
 
-#### `Probe(server, options)`
+##### `Probe(server, options)`
 
 ```
 // Interface Example
@@ -158,7 +160,7 @@ var probe = new Flod.Probe(server, {server: 'hapi', version: '1.8.0'});
     - `version` - (required) the version of the webserver being employed. Must be a Semantic Versioning string.
     - `manualStart` - if set to true, flod will wait for a `probe.ready()` function call before starting the benchmark. Defaults to null.
 
-#### `Probe.ready(data)`
+##### `Probe.ready(data)`
 
 ```
 // Interface Example
