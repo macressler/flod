@@ -10,9 +10,13 @@ A systematic toolchain for benchmarking and comparing Node.js web server framewo
 
 - [**Installation**](#installation)
 - [**Quick Start**](#quick-start)
-- [**Usage**](#usage)
+- [**Uses**](#uses)
     - [Local Testing](#local-bench)
     - [Remote Testing](#remote-testing)
+- [**Usage**](#usage)
+    - [Understanding the Output](#understanding-the-output)
+    - [Useful Flags and Options](#useful-flags-and-options)
+    - [Examples](#examples)
     - [Daemon](#daemon)
 - [Probe](#probe)
 
@@ -44,7 +48,7 @@ To see all of the available options and settings, run:
     flod -h
 
 
-## Usage
+## Uses
 
 Flod is designed to benchmark web servers. Flod will flood the webserver with a optionally specified number of concurrent requests and measure the latencies of each request until the specific total number of requests has been made.
 
@@ -70,6 +74,34 @@ To perform a benchmark on a remote host, flod has the following basic syntax:
 where `URL` is a fully formed URL (with protocol http/https, hostname, path (and perhaps a port if not 80)).
 
 If the remote host is running `flod.Probe`, additional statistics will be printed.
+
+
+## Usage
+
+### Understanding the Output
+
+#### Example 1.
+```
+$ flod -t 5000 -n 2000 -c 100..500 http://localhost:8000/
+This is Flod, version 0.2.0
+Copyright 2013 Walmart, http://github.com/spumko/flod
+
+Benchmarking (hold on)...
+
+Server                  Requests/sec  Latency           Memory  Load
+----------------------  ------------  ----------------  ------  ----
+http://localhost:8000/  100           601.74 ± 319.92               
+http://localhost:8000/  200           1280.93 ± 709.25              
+http://localhost:8000/  300           n/a                           
+http://localhost:8000/  400           n/a                           
+http://localhost:8000/  500           n/a                           
+```
+
+The above example runs five benchmarks from 100 to 500 requests per second on a server running on localhost on port 8000. The acceptable timeout has been set to 5 seconds. The table shows latencies only because this server is not embedded with Flod.Probe.
+
+The latencies are given in the format: `average ± standard deviation`. See [Standard Deviation](http://en.wikipedia.org/wiki/Standard_deviation) for more information. If Memory and Load were enabled, they would be displayed in the same format.
+
+We can conclude that this server maxes out at approximately 200 requests per second with a response time centered around ~1 seconds but likely exceeds 3 seconds (two standard deviations).. 
 
 ### Useful Flags and Options
 
