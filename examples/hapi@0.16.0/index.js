@@ -10,9 +10,7 @@ var hello = {
     path: '/',
     config: {
         validate: {
-            query: {
-                id: Hapi.Types.String()
-            }
+            query: true
         },
         handler: function (request) {
 
