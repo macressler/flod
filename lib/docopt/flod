@@ -15,6 +15,7 @@ Options:
   -p PAYLOADFILE      JSON file to use for PUT/POST payload
   -f PAYLOADFILE      raw file to use for PUT/POST payload
   -C COOKIEFILE       file to use for cookie (one cookie per line)
+  -H HEADERJSONSTR    JSON string to use for headers
   
   -z METRICINTERVAL   time in milliseconds to poll for operational metrics [default: 500]
   -t TIMEOUT          time in milliseconds to wait for a request to complete [default: 1500]
