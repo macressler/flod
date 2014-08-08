@@ -1,4 +1,4 @@
-![RIP](https://github.com/arb/flod/raw/rip/images/rip.png)
+![RIP](https://github.com/hapijs/flod/raw/master/images/rip.png)
 
 # No longer being maintained
 This module is no longer being maintained. There will be no future releases.
