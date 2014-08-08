@@ -2,7 +2,7 @@
   "name": "flod",
   "description": "Node.js Web Framework benchmarking tool",
   "preferGlobal": true,
-  "version": "0.2.2",
+  "version": "0.3.0",
   "author": "Van Nguyen <thegoleffect@gmail.com>",
   "repository": "git://github.com/spumko/flod",
   "engines": {
